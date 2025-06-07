@@ -10,6 +10,8 @@ export default function ActivityDetailsChat() {
                     bgcolor: 'primary.main',
                     color: 'white',
                     padding: 2,
+                    borderTopLeftRadius: 4,
+                    borderTopRightRadius: 4,
                 }}
             >
                 <Typography variant="h6">Chat about this event</Typography>

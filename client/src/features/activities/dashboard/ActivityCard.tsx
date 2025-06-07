@@ -31,9 +31,8 @@ export default function ActivityCard({ activity }: Props) {
                 <CardHeader
                     avatar={<Avatar sx={{ height: 80, width: 80 }} />}
                     title={activity.title}
-                    titleTypographyProps={{
-                        fontWeight: 'bold',
-                        fontSize: 20,
+                    slotProps={{
+                        title: { fontWeight: 'bold', fontSize: 20 },
                     }}
                     subheader={
                         <>
@@ -65,7 +64,7 @@ export default function ActivityCard({ activity }: Props) {
                     Attendees go here
                 </Box>
             </CardContent>
-            <CardContent sx={{ pb: 2 }}>
+            <CardContent sx={{ pb: 2, display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <Typography variant="body2">
                     {activity.description}
                 </Typography>
@@ -73,7 +72,7 @@ export default function ActivityCard({ activity }: Props) {
                         to={`/activities/${activity.id}`}
                         size="medium"
                         variant="contained"
-                        sx={{ display: 'flex', justifySelf: 'self-end', borderRadius: 3 }}
+                        sx={{ borderRadius: 3 }}
                 >
                     View
                 </Button>

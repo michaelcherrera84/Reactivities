@@ -12,13 +12,15 @@ export default function ActivityDetailsSidebar() {
                     backgroundColor: 'primary.main',
                     color: 'white',
                     p: 2,
+                    borderBottomLeftRadius: 0,
+                    borderBottomRightRadius: 0,
                 }}
             >
                 <Typography variant="h6">
                     2 people going
                 </Typography>
             </Paper>
-            <Paper sx={{ padding: 2 }}>
+            <Paper sx={{ padding: 2, borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
                 <Grid2 container alignItems="center">
                     <Grid2 size={8}>
                         <List sx={{ display: 'flex', flexDirection: 'column' }}>
