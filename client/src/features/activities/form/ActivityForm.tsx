@@ -42,6 +42,7 @@ export default function ActivityForm() {
                     onSuccess: () => navigate(`/activities/${activity.id}`),
                 });
             } else {
+                // @ts-ignore
                 createActivity.mutate(flattenedData, {
                     onSuccess: (id) => navigate(`/activities/${id}`),
                 });

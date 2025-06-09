@@ -1,6 +1,6 @@
 import { Grid2 } from '@mui/material';
-import ActivityList from './ActivityList.tsx';
-import ActivityFilters from './ActivityFilters.tsx';
+import ActivityList from './ActivityList';
+import ActivityFilters from './ActivityFilters';
 
 export default function ActivityDashboard() {
 

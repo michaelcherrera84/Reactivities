@@ -1,13 +1,13 @@
 import { Box, Typography } from '@mui/material';
-import ActivityCard from './ActivityCard.tsx';
-import { useActivities } from '../../../lib/hooks/useActivities.ts';
+import ActivityCard from './ActivityCard';
+import { useActivities } from '../../../lib/hooks/useActivities';
 
 export default function ActivityList() {
 
     const { activities, isLoading } = useActivities();
 
     if (isLoading) return <Typography>Loading...</Typography>;
-    
+
     if (!activities) return <Typography>No activities found</Typography>;
 
     return (

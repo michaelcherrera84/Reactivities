@@ -1,16 +1,16 @@
 import { createBrowserRouter, Navigate } from 'react-router';
-import App from '../layout/App.tsx';
-import HomePage from '../../features/home/HomePage.tsx';
-import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard.tsx';
-import ActivityForm from '../../features/activities/form/ActivityForm.tsx';
-import ActivityDetailPage from '../../features/activities/details/ActivityDetailPage.tsx';
-import Counter from '../../features/counter/Counter.tsx';
-import TestErrors from '../../features/errors/TestErrors.tsx';
-import NotFound from '../../features/errors/NotFound.tsx';
-import ServerError from '../../features/errors/ServerError.tsx';
-import LoginForm from '../../features/account/LoginForm.tsx';
-import RequireAuth from './RequireAuth.tsx';
-import RegisterForm from '../../features/account/RegisterForm.tsx';
+import App from '../layout/App';
+import HomePage from '../../features/home/HomePage';
+import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
+import ActivityForm from '../../features/activities/form/ActivityForm';
+import ActivityDetailPage from '../../features/activities/details/ActivityDetailPage';
+import Counter from '../../features/counter/Counter';
+import TestErrors from '../../features/errors/TestErrors';
+import NotFound from '../../features/errors/NotFound';
+import ServerError from '../../features/errors/ServerError';
+import LoginForm from '../../features/account/LoginForm';
+import RequireAuth from './RequireAuth';
+import RegisterForm from '../../features/account/RegisterForm';
 
 export const router = createBrowserRouter([
     {

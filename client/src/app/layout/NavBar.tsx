@@ -1,10 +1,10 @@
 import { AppBar, Box, Container, LinearProgress, MenuItem, Toolbar, Typography } from '@mui/material';
 import { Group } from '@mui/icons-material';
 import { NavLink } from 'react-router';
-import MenuItemLink from '../shared/components/MenuItemLink.tsx';
-import { useStore } from '../../lib/stores/useStore.ts';
+import MenuItemLink from '../shared/components/MenuItemLink';
+import { useStore } from '../../lib/stores/useStore';
 import { Observer } from 'mobx-react-lite';
-import { useAccount } from '../../lib/hooks/useAccount.ts';
+import { useAccount } from '../../lib/hooks/useAccount';
 import UserMenu from './UserMenu.tsx';
 
 export default function NavBar() {
@@ -41,7 +41,7 @@ export default function NavBar() {
                         </Box>
                         <Box display="flex" alignItems="center">
                             {currentUser ? (
-                               <UserMenu />
+                                <UserMenu />
                             ) : (
                                 <>
                                     <MenuItemLink to="/login">Login</MenuItemLink>
