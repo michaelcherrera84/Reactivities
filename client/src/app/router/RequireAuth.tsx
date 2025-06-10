@@ -10,7 +10,7 @@ export default function RequireAuth() {
     if (loadingUserInfo) return <Typography>Loading...</Typography>;
 
     if (!currentUser) return <Navigate to="/login" state={{ from: location }} />;
-
+    
     return (
         <Outlet />
     );

@@ -47,9 +47,9 @@ export default function LoginForm() {
             <Button type="submit" disabled={!isValid || isSubmitting} variant="contained" size="large">
                 Login
             </Button>
-            <Typography sx={{textAlign: 'center'}}>
+            <Typography sx={{ textAlign: 'center' }}>
                 Don't have an account?
-                <Typography component={Link} to='/register' color="primary" sx={{ml: 2}}>
+                <Typography component={Link} to="/register" color="primary" sx={{ ml: 2 }}>
                     Sign up
                 </Typography>
             </Typography>

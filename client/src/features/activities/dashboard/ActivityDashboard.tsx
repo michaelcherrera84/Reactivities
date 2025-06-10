@@ -3,8 +3,7 @@ import ActivityList from './ActivityList';
 import ActivityFilters from './ActivityFilters';
 
 export default function ActivityDashboard() {
-
-
+    
     return (
         <Grid2 container spacing={3}>
             <Grid2 size={8}>
