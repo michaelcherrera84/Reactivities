@@ -25,10 +25,6 @@ export const useAccount = () => {
         mutationFn: async (creds: RegisterSchema) => {
             await agent.post('/account/register', creds);
         },
-        onSuccess: () => {
-            toast.success('User registered successfully. You can now be logged in.');
-            navigate('/login');
-        },
     });
 
     const logoutUser = useMutation({
@@ -42,13 +38,33 @@ export const useAccount = () => {
         },
     });
 
+    const verifyEmail = useMutation({
+        mutationFn: async ({ userId, code }: { userId: string, code: string }) => {
+            await agent.get(`/confirmEmail?userId=${userId}&code=${code}`);
+        },
+    });
+
+    const resendConfirmationEmail = useMutation({
+        mutationFn: async ({ email, userId }: { email?: string, userId?: string | null }) => {
+            await agent.get(`/account/resendConfirmEmail`, {
+                params: {
+                    email,
+                    userId,
+                },
+            });
+        },
+        onSuccess: () => {
+            toast.success('Email sent! Please check your inbox.');
+        },
+    });
+
     const { data: currentUser, isLoading: loadingUserInfo } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
             const response = await agent.get<User>('/account/user-info');
             return response.data;
         },
-        enabled: !queryClient.getQueryData(['user'])
+        enabled: !queryClient.getQueryData(['user']),
     });
 
     return {
@@ -57,5 +73,7 @@ export const useAccount = () => {
         logoutUser,
         loadingUserInfo,
         registerUser,
+        verifyEmail,
+        resendConfirmationEmail,
     };
 };
