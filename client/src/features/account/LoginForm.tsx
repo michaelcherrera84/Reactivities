@@ -43,44 +43,51 @@ export default function LoginForm() {
     };
 
     return (
-        <Paper component="form"
-               onSubmit={handleSubmit(onSubmit)}
-               sx={{
-                   display: 'flex',
-                   flexDirection: 'column',
-                   p: 3,
-                   gap: 3,
-                   maxWidth: 'md',
-                   mx: 'auto',
-                   borderRadius: 3,
-               }}
-        >
-            <Box display="flex" alignItems="center" justifyContent="center" gap={3} color="secondary.main">
-                <LockOpen fontSize="large" />
-                <Typography variant="h4">Sign In</Typography>
-            </Box>
-            <TextInput label="Email" control={control} name="email" />
-            <TextInput label="Password" control={control} name="password" type="password" />
-            <Button type="submit" disabled={!isValid || isSubmitting} variant="contained" size="large">
-                Login (use Email: bob@test.com, Password: Pa$$w0rd for testing if you don't want to sign up)
-            </Button>
-            {notVerified ? (
-                <Box display="flex" flexDirection="column" justifyContent="center">
-                    <Typography textAlign="center" color="error">
-                        Your email has not been verified. Click the button below to resend the verification email.
-                    </Typography>
-                    <Button disabled={resendConfirmationEmail.isPending} onClick={handleResendEmail}>
-                        Resend verification email
-                    </Button>
+        <>
+            <Paper component="form"
+                   onSubmit={handleSubmit(onSubmit)}
+                   sx={{
+                       display: 'flex',
+                       flexDirection: 'column',
+                       p: 3,
+                       gap: 3,
+                       maxWidth: 'md',
+                       mx: 'auto',
+                       borderRadius: 3,
+                   }}
+            >
+                <Box display="flex" alignItems="center" justifyContent="center" gap={3} color="secondary.main">
+                    <LockOpen fontSize="large" />
+                    <Typography variant="h4">Sign In</Typography>
                 </Box>
-            ) : (
-                <Typography sx={{ textAlign: 'center' }}>
-                    Don't have an account?
-                    <Typography component={Link} to="/register" color="primary" sx={{ ml: 2 }}>
-                        Sign up
+                <TextInput label="Email" control={control} name="email" />
+                <TextInput label="Password" control={control} name="password" type="password" />
+                <Button type="submit" disabled={!isValid || isSubmitting} variant="contained" size="large">
+                    Login (use Email: bob@test.com, Password: Pa$$w0rd for testing)
+                </Button>
+                {notVerified ? (
+                    <Box display="flex" flexDirection="column" justifyContent="center">
+                        <Typography textAlign="center" color="error">
+                            Your email has not been verified. Click the button below to resend the verification email.
+                        </Typography>
+                        <Button disabled={resendConfirmationEmail.isPending} onClick={handleResendEmail}>
+                            Resend verification email
+                        </Button>
+                    </Box>
+                ) : (
+                    <Typography sx={{ textAlign: 'center' }}>
+                        Don't have an account?
+                        <Typography component={Link} to="/register" color="primary" sx={{ ml: 2 }}>
+                            Sign up
+                        </Typography>
                     </Typography>
-                </Typography>
-            )}
-        </Paper>
+                )}
+            </Paper>
+            <p style={{ margin: '10px auto', maxWidth: '850px' }}>
+                *Registering new users is currently unavailable. This application is for demonstration purposes only.
+                While registering new users is technically possible, this application does not currently employ a
+                registered domain for the email verification service.
+            </p>
+        </>
     );
 }

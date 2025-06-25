@@ -69,6 +69,11 @@ export default function RegisterForm() {
                     </Typography>
                 </Paper>
             )}
+            <p style={{ margin: '10px auto', maxWidth: '850px' }}>
+                *Registering new users is currently unavailable. This application is for demonstration purposes only.
+                While registering new users is technically possible, this application does not currently employ a
+                registered domain for the email verification service.
+            </p>
         </>
     );
 }
