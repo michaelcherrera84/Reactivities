@@ -3,7 +3,7 @@ import { loginSchema, type LoginSchema } from '../../lib/schemas/loginSchema';
 import { useForm } from 'react-hook-form';
 import { useAccount } from '../../lib/hooks/useAccount';
 import { Box, Button, Paper, Typography } from '@mui/material';
-import { LockOpen } from '@mui/icons-material';
+import { GitHub, LockOpen } from '@mui/icons-material';
 import TextInput from '../../app/shared/components/TextInput';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { useState } from 'react';
@@ -42,6 +42,12 @@ export default function LoginForm() {
         });
     };
 
+    const loginWithGithub = () => {
+        const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
+        const redirectUrl = import.meta.env.VITE_REDIRECT_URL;
+        window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=read:user user:email`;
+    };
+
     return (
         <>
             <Paper component="form"
@@ -64,6 +70,15 @@ export default function LoginForm() {
                 <TextInput label="Password" control={control} name="password" type="password" />
                 <Button type="submit" disabled={!isValid || isSubmitting} variant="contained" size="large">
                     Login (use Email: bob@test.com, Password: Pa$$w0rd for testing)
+                </Button>
+                <Button onClick={loginWithGithub}
+                        startIcon={<GitHub />}
+                        sx={{ backgroundColor: 'black' }}
+                        type="button"
+                        variant="contained"
+                        size="large"
+                >
+                    Login with Github
                 </Button>
                 {notVerified ? (
                     <Box display="flex" flexDirection="column" justifyContent="center">
@@ -89,9 +104,9 @@ export default function LoginForm() {
                 )}
             </Paper>
             <p style={{ margin: '10px auto', maxWidth: '850px' }}>
-                *Registering new users is currently unavailable. This application is for demonstration purposes only.
-                While registering new users is technically possible, this application does not currently employ a
-                registered domain for the email verification service.
+                * Registering new users via email is currently unavailable. This application is for demonstration
+                purposes only. While registering new users is technically possible, this application does not currently
+                employ a registered domain for the email verification service.
             </p>
         </>
     );
